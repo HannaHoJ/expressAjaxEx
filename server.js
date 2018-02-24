@@ -6,8 +6,8 @@
 var express = require('express');
 //get http and https servers
 //var https = require('https');
-var http = require('http');
-var path = require('path');
+// var http = require('http');
+var path = require('path'); 
 //parse json request bodies
 var bodyParser = require('body-parser')
 
@@ -39,11 +39,12 @@ app.get('/', (req,res) => {
 
 //https://stackoverflow.com/questions/7042340/error-cant-set-headers-after-they-are-sent-to-the-client
 app.post('/:item', function (req, res) {
-	console.log('params: ' + JSON.stringify(req.params));
+	console.log('params: ' + JSON.stringify(req.params, null, 4));
 	console.log('body: ' + JSON.stringify(req.body));
-  	res.json(req.params);
-  	res.redirect('/');
-  	res.end();
+  	// res.json(req.params);
+  	// res.redirect('/');
+  	// res.end();
+  	res.send({ what: 'ever', i: 'want' });
 
 })
 
@@ -54,5 +55,8 @@ app.post('/:item', function (req, res) {
 //   	return res.send('Got a DELETE request at /item');
 // })
 
-http.createServer(app).listen(port);
+// http.createServer(app).listen(port);
 
+app.listen(PORT, function() {
+	console.log(`listening on port ${PORT}`);
+});
