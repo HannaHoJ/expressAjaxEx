@@ -17,7 +17,7 @@ var port = process.env.PORT || 5000;
 
 
 //use bodyParser as middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
 //creates error
 //app.use(bodyParser.json());
 
@@ -57,6 +57,6 @@ app.post('/:item', function (req, res) {
 
 // http.createServer(app).listen(port);
 
-app.listen(PORT, function() {
-	console.log(`listening on port ${PORT}`);
+app.listen(port, function() {
+	console.log(`listening on port ${port}`);
 });
